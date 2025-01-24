@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Server, Palette, Zap } from 'lucide-react';
+import { LightbulbIcon } from 'lucide-react';
+import { skillCategories } from '../../data/Skills';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -15,29 +16,6 @@ const staggerChildren = {
     },
   },
 };
-
-const skillCategories = [
-  {
-    title: 'Frontend',
-    icon: Code,
-    skills: ['React', 'Vue.js', 'Angular', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
-  },
-  {
-    title: 'Backend',
-    icon: Server,
-    skills: ['Node.js', 'Express', 'Python', 'Django', 'Java', 'Spring Boot', 'SQL', 'MongoDB'],
-  },
-  {
-    title: 'Design',
-    icon: Palette,
-    skills: ['UI/UX Design', 'Figma', 'Adobe XD', 'Responsive Design', 'Wireframing', 'Prototyping'],
-  },
-  {
-    title: 'Other',
-    icon: Zap,
-    skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Agile Methodologies', 'RESTful APIs', 'GraphQL'],
-  },
-];
 
 export default function SkillsPage() {
   const [mounted, setMounted] = useState(false);
@@ -75,6 +53,7 @@ export default function SkillsPage() {
           whileTap={{ scale: 0.95 }}
           className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded-full flex items-center gap-2 mb-16 shadow-lg hover:shadow-xl transition-all duration-300"
         >
+          <LightbulbIcon className="w-5 h-5" />
           <span className="text-lg font-medium">My Skills</span>
         </motion.button>
 
@@ -82,13 +61,12 @@ export default function SkillsPage() {
           variants={fadeIn}
           className="text-4xl md:text-6xl font-bold mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400"
         >
-          Crafting Digital Experiences <br />
-          With Cutting-Edge Skills
+          My Technical and Soft Skills.
         </motion.h1>
 
         <motion.p
           variants={fadeIn}
-          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-20 leading-relaxed max-w-4xl"
+          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-20 leading-relaxed max-w-4xl text-justify"
         >
           As a passionate Full Stack Developer, I've honed a diverse set of skills that enable me to create seamless,
           efficient, and visually stunning web applications. From frontend frameworks to backend technologies, I'm

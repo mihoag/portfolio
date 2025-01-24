@@ -33,7 +33,7 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="min-h-screen relative p-2 md:p-12 transition-colors duration-300">
-     <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0"
           style={{

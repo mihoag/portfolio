@@ -1,49 +1,50 @@
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import emailjs from "@emailjs/browser"
-import { MapPin, Mail, Phone, Loader2 } from "lucide-react"
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
+import { MapPin, Mail, Phone, Loader2 } from 'lucide-react';
+import { PersonalInfo } from '../../data/PersonalInfo';
 
 interface FormData {
-  name: string
-  email: string
-  subject: string
-  message: string
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 }
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>()
+  } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
         {
           from_name: data.name,
           from_email: data.email,
           subject: data.subject,
           message: data.message,
         },
-        "YOUR_PUBLIC_KEY",
-      )
-      setSubmitStatus("success")
-      reset()
+        'YOUR_PUBLIC_KEY',
+      );
+      setSubmitStatus('success');
+      reset();
     } catch {
-      setSubmitStatus("error")
+      setSubmitStatus('error');
     }
-    setIsSubmitting(false)
-    setTimeout(() => setSubmitStatus("idle"), 3000)
-  }
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus('idle'), 3000);
+  };
 
   return (
     <div className="min-h-screen py-6 px-4 sm:px-6 lg:px-8">
@@ -75,7 +76,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
-                    <p className="text-base font-medium text-gray-900 dark:text-white">Ho Chi Minh City, Vietnam</p>
+                    <p className="text-base font-medium text-gray-900 dark:text-white">{PersonalInfo.address}</p>
                   </div>
                 </motion.div>
 
@@ -89,7 +90,7 @@ export default function Contact() {
                       href="mailto:your.email@example.com"
                       className="text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
                     >
-                      your.email@example.com
+                      {PersonalInfo.email}
                     </a>
                   </div>
                 </motion.div>
@@ -104,14 +105,13 @@ export default function Contact() {
                       href="tel:+1234567890"
                       className="text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
                     >
-                      +84 123 456 789
+                      {PersonalInfo.phone}
                     </a>
                   </div>
                 </motion.div>
               </div>
             </div>
           </motion.div>
-
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -128,8 +128,8 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
-                    {...register("name", { required: "Name is required" })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    {...register('name', { required: 'Name is required' })}
+                    className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
                 </div>
@@ -141,11 +141,11 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
-                    {...register("email", {
-                      required: "Email is required",
+                    {...register('email', {
+                      required: 'Email is required',
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address",
+                        message: 'Invalid email address',
                       },
                     })}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
@@ -160,7 +160,7 @@ export default function Contact() {
                   <input
                     type="text"
                     id="subject"
-                    {...register("subject", { required: "Subject is required" })}
+                    {...register('subject', { required: 'Subject is required' })}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>}
@@ -173,7 +173,7 @@ export default function Contact() {
                   <textarea
                     id="message"
                     rows={4}
-                    {...register("message", { required: "Message is required" })}
+                    {...register('message', { required: 'Message is required' })}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
@@ -186,16 +186,16 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
                 >
-                  {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : "Send Message"}
+                  {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Send Message'}
                 </motion.button>
 
-                {submitStatus === "success" && (
+                {submitStatus === 'success' && (
                   <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-600 text-center">
                     Message sent successfully!
                   </motion.p>
                 )}
 
-                {submitStatus === "error" && (
+                {submitStatus === 'error' && (
                   <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-center">
                     Failed to send message. Please try again.
                   </motion.p>
@@ -205,12 +205,11 @@ export default function Contact() {
           </motion.div>
         </div>
       </motion.div>
-       {/* Floating gradient orbs */}
-       <div className="fixed inset-0 pointer-events-none">
+      {/* Floating gradient orbs */}
+      <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
       </div>
     </div>
-  )
+  );
 }
-

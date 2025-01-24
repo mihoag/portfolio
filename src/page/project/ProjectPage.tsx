@@ -67,7 +67,7 @@ export default function ProjectsPage() {
 
         <motion.p
           variants={fadeIn}
-          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-10 leading-relaxed max-w-4xl"
+          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-10 leading-relaxed max-w-4xl text-justify"
         >
           Here are some of the projects I've worked on. Each one has taught me something new and helped me grow as a
           developer.

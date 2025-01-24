@@ -1,5 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Languages, Flag, UserIcon as GenderMale, Heart } from 'lucide-react';
+import {
+  Languages,
+  Flag,
+  UserIcon as GenderMale,
+  Heart,
+  User,
+  Code,
+  BookOpen,
+  Music,
+  Monitor,
+  Film,
+  Bike,
+  Gamepad2,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const fadeIn = {
@@ -18,6 +31,16 @@ const staggerChildren = {
 
 export default function AboutMe() {
   const [mounted, setMounted] = useState(false);
+
+  const hobbies = [
+    { name: 'Coding', icon: Code },
+    { name: 'Researching', icon: BookOpen },
+    { name: 'Listening to Music', icon: Music },
+    { name: 'Reading Tech Blogs', icon: Monitor },
+    { name: 'Watching Movies', icon: Film },
+    { name: 'Riding Bicycle', icon: Bike },
+    { name: 'Playing Video Games', icon: Gamepad2 },
+  ];
 
   useEffect(() => {
     setMounted(true);
@@ -52,6 +75,7 @@ export default function AboutMe() {
           whileTap={{ scale: 0.95 }}
           className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded-full flex items-center gap-2 mb-10 shadow-lg hover:shadow-xl transition-all duration-300"
         >
+          <User className="w-5 h-5" />
           <span className="text-lg font-medium">About me</span>
         </motion.button>
 
@@ -65,17 +89,18 @@ export default function AboutMe() {
 
         <motion.p
           variants={fadeIn}
-          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-20 leading-relaxed max-w-4xl"
+          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-20 leading-relaxed max-w-4xl text-justify"
         >
-          I am a Full Stack Web Developer from Ho Chi Minh city, Vietnam. I love crafting cool web projects and also
-          open-source contributions. My biggest achievement lies in my mastery of JavaScript and CSS, ensuring
-          pixel-perfect designs that captivate users. With a keen eye for detail and a commitment to delivery speed, I
-          excel at creating seamless and responsive interfaces that leave a lasting impression.
+          I am a passionate full-stack developer with expertise in building scalable, user-friendly web applications and
+          designing system architectures. My technical skills include Java, JavaScript, Spring Boot, MySQL ..., which
+          enable me to create intuitive and efficient solutions tailored to user needs. Currently, I am exploring AI and
+          System Design to integrate innovative features into my projects. I value continuous learning, teamwork, and
+          adaptability, striving to contribute to impactful projects while driving success for my team.
         </motion.p>
 
         <motion.div variants={staggerChildren} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {[
-            { icon: Languages, title: 'Language', value: 'English UK' },
+            { icon: Languages, title: 'Language', value: 'Vietnamese, English' },
             { icon: Flag, title: 'Nationality', value: 'Vietnam' },
             { icon: GenderMale, title: 'Gender', value: 'Male' },
           ].map((item) => (
@@ -105,24 +130,16 @@ export default function AboutMe() {
             <h2 className="text-3xl font-semibold dark:text-white">Hobbies</h2>
           </div>
 
-          <motion.div variants={staggerChildren} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              'Coding',
-              'Playing games',
-              'Listen to music',
-              'Reading Novel',
-              'Watching Anime',
-              'Watching Live Streams',
-              'Creating Cool Projects',
-            ].map((hobby) => (
+          <motion.div variants={staggerChildren} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {hobbies.map((hobby) => (
               <motion.div
-                key={hobby}
+                key={hobby.name}
                 variants={fadeIn}
                 whileHover={{ scale: 1.02 }}
                 className="flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl hover:shadow-md transition-all duration-300"
               >
-                <div className="w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-400" />
-                <span className="text-gray-700 dark:text-gray-300">{hobby}</span>
+                <hobby.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <span className="text-gray-700 dark:text-gray-300">{hobby.name}</span>
               </motion.div>
             ))}
           </motion.div>

@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { GraduationCap, Calendar } from 'lucide-react';
+import { educationData } from '../../data/Education';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.2 },
 };
-
 export default function EducationPage() {
   return (
     <div className="min-h-screen relative p-6 md:p-12 transition-colors duration-300">
@@ -48,49 +48,42 @@ export default function EducationPage() {
         </motion.button>
         {/* Timeline Section */}
         <div className="relative">
-          {/* Timeline Entry */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="relative pl-8 md:pl-0 md:grid md:grid-cols-[180px_1fr] md:gap-8"
-          >
-            {/* Date */}
-            <div className="absolute md:relative left-0 flex items-center md:justify-end">
-              <div className="hidden md:flex items-center text-gray-500 mr-8 mb-8 text-blue-800 dark:text-blue-200">
-                <Calendar className="mr-2" /> <span> Sep 2021 - 2025</span>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="pb-12">
-              <div className="relative pl-8 md:pl-0">
-                {/* Vertical Line */}
-                <div className="absolute top-0 left-0 md:left-[-24px] bottom-0 w-[2px] bg-gradient-to-b from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400" />
-
-                {/* Mobile Date */}
-                <div className="md:hidden md:flex text-gray-500 mb-2 dark:text-blue-200">
-                  {' '}
-                  <Calendar /> <span> Sep 2021 - 2025</span>
-                </div>
-
-                {/* Education Details */}
-                <div>
-                  <h2 className="text-2xl font-bold mb-2">
-                    Bachelor of Software Engineering,
-                    <br />
-                    University of Science, VNU-HCM.
-                  </h2>
-                  <p className="text-gray-600 leading-relaxed dark:text-blue-200">
-                    I am currently studying Bachelor of Software Engineering from University of Science, VNU-HCM
-                    (HCMUS). The program has provided me with a well-rounded education, covering both theoretical
-                    foundations and practical applications of computer science.
-                  </p>
+          {educationData.map((education, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="relative pl-8 md:pl-0 md:grid md:grid-cols-[180px_1fr] md:gap-8 mb-12"
+            >
+              {/* Date */}
+              <div className="absolute md:relative left-0 flex items-center md:justify-end">
+                <div className="hidden md:flex items-center text-gray-500 mr-8 mb-8 text-blue-800 dark:text-blue-200">
+                  <Calendar className="mr-2" /> <span>{education.time}</span>
                 </div>
               </div>
-            </div>
-          </motion.div>
 
-          {/* Additional Timeline Entries can be added here following the same structure */}
+              {/* Content */}
+              <div className="pb-12">
+                <div className="relative pl-8 md:pl-0">
+                  {/* Vertical Line */}
+                  <div className="absolute top-0 left-0 md:left-[-24px] bottom-0 w-[2px] bg-gradient-to-b from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400" />
+
+                  {/* Mobile Date */}
+                  <div className="md:hidden flex items-center text-gray-500 mb-2 dark:text-blue-200">
+                    <Calendar className="mr-2" /> <span>{education.time}</span>
+                  </div>
+
+                  {/* Education Details */}
+                  <div>
+                    <h2 className="text-2xl font-bold mb-2  whitespace-pre-line">{education.title}</h2>
+                    <p className="text-gray-600 leading-relaxed dark:text-blue-200 text-justify">
+                      {education.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
       {/* Floating gradient orbs */}

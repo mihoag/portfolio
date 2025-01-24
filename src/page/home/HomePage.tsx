@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.jpg';
+import { PersonalInfo } from '../../data/PersonalInfo';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -86,7 +87,7 @@ export default function HomePage() {
           >
             You can find me on{' '}
             <a
-              href="#"
+              href={PersonalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full text-blue-900 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-all duration-300"
@@ -95,7 +96,7 @@ export default function HomePage() {
             </a>{' '}
             and{' '}
             <a
-              href="#"
+              href={PersonalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full text-green-900 dark:text-green-200 hover:bg-green-200 dark:hover:bg-green-900/50 transition-all duration-300"
@@ -119,13 +120,13 @@ export default function HomePage() {
           transition={{ delay: 0.8 }}
           className="mt-12 flex gap-4"
         >
-          <Link to="/project">
+          <Link to="/resume">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              View Projects
+              My Resume
             </motion.button>
           </Link>
           <Link to="/contact">
