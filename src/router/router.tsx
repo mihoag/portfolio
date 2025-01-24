@@ -7,6 +7,7 @@ import EducationPage from '../page/work/EducationPage';
 import { NotFoundPage } from '../page/error';
 import ProjectsPage from '../page/project/ProjectPage';
 import ProjectDetailPage from '../page/project/DetailProjectPage';
+import Contact from '../page/contact/Contact';
 
 // Define the router with typed routes
 const router = createBrowserRouter(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/work" element={<EducationPage />} />
       <Route path="/project" element={<ProjectsPage />} />
       <Route path="/project/:id" element={<ProjectDetailPage />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFoundPage />} />
     </Route>,
   ),
