@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Smooth scrolling and transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transition for theme changes */
+* {
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(48px, 48px);
+  }
+}
+
+/* Add custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+/* Optimize font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
