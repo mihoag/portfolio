@@ -27,15 +27,15 @@ export default function Contact() {
     setIsSubmitting(true);
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_ibu5aw9',
+        'template_5dzxhxt',
         {
           from_name: data.name,
           from_email: data.email,
           subject: data.subject,
           message: data.message,
         },
-        'YOUR_PUBLIC_KEY',
+        'FjAV1de0oEJKhJymj',
       );
       setSubmitStatus('success');
       reset();
@@ -129,7 +129,7 @@ export default function Contact() {
                     type="text"
                     id="name"
                     {...register('name', { required: 'Name is required' })}
-                    className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    className="mt-1 block w-full rounded-md bg-gray-100 border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
                 </div>
@@ -148,7 +148,7 @@ export default function Contact() {
                         message: 'Invalid email address',
                       },
                     })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    className="mt-1 block w-full bg-gray-100 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
                 </div>
@@ -161,7 +161,7 @@ export default function Contact() {
                     type="text"
                     id="subject"
                     {...register('subject', { required: 'Subject is required' })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    className="mt-1 block w-full bg-gray-100 rounded-md border-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>}
                 </div>
@@ -174,7 +174,7 @@ export default function Contact() {
                     id="message"
                     rows={4}
                     {...register('message', { required: 'Message is required' })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    className="mt-1 block w-full bg-gray-100 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
                 </div>

@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.jpg';
 import { PersonalInfo } from '../../data/PersonalInfo';
+import CV from '../../assets/CV.pdf';
+import { FaDownload } from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -120,21 +123,24 @@ export default function HomePage() {
           transition={{ delay: 0.8 }}
           className="mt-12 flex gap-4"
         >
-          <Link to="/resume">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              My Resume
-            </motion.button>
-          </Link>
+          <motion.a
+            href={CV}
+            download
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <FaDownload className="mt-1 mr-2" />
+            My Resume
+          </motion.a>
+
           <Link to="/contact">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+              className="flex px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
             >
+              <FaEnvelope className="mt-1 mr-2" />
               Contact Me
             </motion.button>
           </Link>
