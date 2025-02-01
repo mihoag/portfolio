@@ -7,64 +7,119 @@ type Project = {
   liveLink: string;
   githubLink: string;
   startDate: string;
+  endDate: string;
   teamSize: number;
-  linesOfCode: number;
-  majorFeatures: number;
+  features: string[];
 };
 
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management and secure payment integration.',
-    image: '/placeholder.svg?height=400&width=600',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    title: 'VOU – Marketing with Real-time Games',
+    description: 'VOU – Gamified Marketing Platform is an innovative solution that enables brands to create viral promotional campaigns through real-time interactive games, such as quizzes and phone-shaking challenges, enhancing user engagement and brand visibility. Designed for cost-effective game-based promotions, VOU has evolved through multiple development phases to improve performance and scalability. Initially built as a monolithic application using Domain-Driven Design (DDD) in Version 1, the platform was enhanced in Version 2 with database replication for improved availability. Version 3 transitioned VOU to a microservices architecture, increasing flexibility and scalability, while Version 4 further optimized performance by introducing caching and replicated databases for the image service. With its continuously evolving architecture, VOU delivers a highly interactive and seamless marketing experience, empowering brands to engage users like never before.',
+    image: 'https://res.cloudinary.com/dt0ps34k9/image/upload/v1738299491/Screenshot_2025-01-31_115628_nbgil1.png',
+    technologies: ['Spring Boot', 'Spring Security', 'Microservices', 'Spring Cloud', 'JWT', 'WebSocket', 'MySQL', 'MongoDb' , 'Redis', 'RabbitMQ', 'Docker', 'React', 'React native', 'TypeScript', 'Tailwind CSS'],
     liveLink: 'https://example-ecommerce.com',
-    githubLink: 'https://github.com/yourusername/ecommerce-platform',
-    startDate: 'January 2023',
-    teamSize: 4,
-    linesOfCode: 20000,
-    majorFeatures: 15,
+    githubLink: 'https://github.com/VOU-Marketing-with-Real-time-Games',
+    startDate: 'November 2024',
+    endDate: 'January 2025',
+    teamSize: 5,
+    features: [
+      'Real-time interactive games',
+      'User authentication and authorization',
+    ]
   },
   {
     id: '2',
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates and team communication features.',
-    image: '/placeholder.svg?height=400&width=600',
-    technologies: ['Vue.js', 'Firebase', 'Vuex', 'Tailwind CSS'],
-    liveLink: 'https://example-taskmanager.com',
-    githubLink: 'https://github.com/yourusername/task-management-app',
-    startDate: 'March 2023',
+    title: 'Movies Recommendation',
+    description: 'The website is designed to help users easily discover and watch movies across various categories, including trending movies, popular movies, and newly released films. Users can search and filter movies based on their preferences and view detailed information about the actors featured in each film. Additionally, users can rate movies, add them to their favorites, create watch lists, and view statistics on the movies they have added and reviewed. The website offers advanced features such as searching for movies based on user queries, search history, and recommendations based on similarities in genres, descriptions, and keywords. Moreover, the website includes navigation features that allow users to easily access the pages they want, ensuring a seamless browsing experience.',
+    image: 'https://res.cloudinary.com/dt0ps34k9/image/upload/v1738308050/Screenshot_2025-01-31_141955_gayvii.png',
+    technologies: ['Spring Boot', 'Spring Security', 'JWT', 'MongoDb' , 'Redis', 'RAG-LLM' ,'Docker', 'React', 'React Query', 'Redux', 'TypeScript', 'Tailwind CSS'],
+    liveLink: 'https://advanced-web-project.github.io/tmdb-frontend',
+    githubLink: 'https://github.com/advanced-web-project',
+    startDate: 'December 2024',
+    endDate: 'January 2025',
     teamSize: 3,
-    linesOfCode: 15000,
-    majorFeatures: 12,
+    features: [
+      'Login with username & password',
+      'Social login (Google)',
+      'Account registration & email activation',
+      'Password recovery',
+      'Display trending, popular movies, new movie trailers, quick search bar, movie category switching',
+      'Search and filter movies by movie name, actor name, natural language',
+      'AI Assistant Navigation',
+      'Personalized Movie Recommendations',
+      'Rendering detail movie, actor',
+      'User interaction: rate, add to favorite, watch list',
+      'Detail profile, edit and update profile'
+    ]
   },
   {
     id: '3',
-    title: 'Weather Forecast Dashboard',
-    description:
-      'An interactive weather dashboard providing real-time forecasts and historical weather data visualization.',
-    image: '/placeholder.svg?height=400&width=600',
-    technologies: ['React', 'D3.js', 'OpenWeatherMap API', 'Styled Components'],
-    liveLink: 'https://example-weatherdashboard.com',
-    githubLink: 'https://github.com/yourusername/weather-forecast-dashboard',
-    startDate: 'May 2023',
-    teamSize: 2,
-    linesOfCode: 10000,
-    majorFeatures: 8,
+    title: 'Simple Enterprise Framework',
+    description: 'SEP is a software development framework designed to streamline the creation of management applications with essential CRUD (Create, Read, Update, Delete) functionalities. Built using object-oriented design patterns, the framework provides a structured and reusable architecture, allowing developers to rapidly generate database-driven applications.',
+    image: 'https://res.cloudinary.com/dt0ps34k9/image/upload/v1738310899/Screenshot_2025-01-31_150756_awm5kc.png',
+    technologies: ['.NET','MongoDB','MySQL', 'PostgresSQL', 'React', 'Prisma'],
+    liveLink: '',
+    githubLink: '',
+    startDate: 'November 2024',
+    endDate: 'January 2025',
+    teamSize: 4,
+    features: [
+      'User Authentication & Role-Based Access Control',
+      'Dynamic CRUD Form Generation',
+      ' Custom Inversion of Control (IoC) Implementation',
+      'Dynamically generates UI layouts and data models based on database structures.'
+
+    ]
   },
   {
     id: '4',
-    title: 'Social Media Analytics Tool',
-    description:
-      'A comprehensive analytics tool for social media marketers, offering insights and campaign performance tracking.',
-    image: '/placeholder.svg?height=400&width=600',
-    technologies: ['Angular', 'Express.js', 'PostgreSQL', 'Chart.js'],
-    liveLink: 'https://example-socialanalytics.com',
-    githubLink: 'https://github.com/yourusername/social-media-analytics',
-    startDate: 'July 2023',
-    teamSize: 5,
-    linesOfCode: 25000,
-    majorFeatures: 20,
+    title: 'Online Novel Aggregation and Reading Application',
+    description: 'The Online Novel Aggregation and Reading Application is a platform that enables users to search, read, and manage their favorite novels from multiple online sources. Instead of storing novel content, the system aggregates data from external websites, allowing users to access a wide variety of novels effortlessly. The application enhances the reading experience with customizable display settings, including font size, font type, background color, text color, and line spacing. Users can bookmark their reading progress, navigate efficiently between chapters, and export novels into various formats (PDF, EPUB, MP3) for offline reading on other devices. With a flexible source management system, users can prioritize novel sources to ensure they get the best-quality content. The system also automatically switches sources if a chapter is unavailable or of poor quality, maintaining a seamless reading experience. Designed with a plugin-based architecture, the application supports hot-plugging, allowing administrators to dynamically add or remove novel sources and export formats without requiring system recompilation. This ensures long-term adaptability and easy expansion, making the platform highly scalable and future-proof.',
+    image: 'https://res.cloudinary.com/dt0ps34k9/image/upload/v1738325029/Screenshot_2025-01-31_190232_carp6b.png',
+    technologies: ['Spring boot','Crawling', 'JSoup' , 'Spring Security', 'Docker', 'Typescript', 'ReactJS', 'MUI', 'Redux-Persits', 'Tailwind CSS', 'redux-toolkit', 'zustand', 'tanstack-react-query', 'react-loading-skeleton'],
+    liveLink: 'https://me-d-c-truy-n.github.io/frontend/',
+    githubLink: 'https://github.com/Me-d-c-truy-n',
+    startDate: 'May 2024',
+    endDate: 'July 2024',
+    teamSize: 4,
+    features: [
+     'Search novels by title, author, publication year',
+     'Read novels with customizable display settings (font size, colors, spacing)',
+     'Fetches novel content from multiple external sources with user-defined priority',
+      'Automatically switches to an alternative source if a chapter is missing or of low quality',
+      'Saves user progress and enables quick navigation to chapters or specific pages',
+      'Supports exporting novels into various formats (PDF, EPUB, MP3) for offline reading',
+      'Downloads and stores content locally for faster access and better convenience',
+      'Supports hot-plugging new novel sources without recompilation',
+      'Administrators can add/remove supported ebook formats dynamically'
+    ]
+  },
+  {
+    id: '5',
+    title: 'E-commerce Platform',
+    description: 'EcommerceShop is a modular e-commerce platform that provides both admin and customer. This project is designed using a modular architecture for easy maintenance and flexibility. The root project, EcommerceShop, consists of multiple submodules, each handling different components of the e-commerce system.',
+    image: 'https://res.cloudinary.com/dt0ps34k9/image/upload/v1738329598/Screenshot_2025-01-31_201825_id99re.png',
+    technologies: ['Spring boot','Spring Security', 'MySql' , 'Redis', 'MongoDB', 'Docker', 'Bootstrap', 'JQuery', 'Charts', 'Thymeleaf', 'Websocket', 'Ajax', 'S3-Storage', 'Facebook-login', 'Googleoauth2', 'Paypal-checkout', 'Recaptcha-V3', 'FAISS', 'Huggingface Transformers'],
+    liveLink: 'https://my-us-shop.onrender.com/Myshop',
+    githubLink: 'https://github.com/mihoag/E-commerce-Website',
+    startDate: 'July 2024',
+    endDate: 'October 2024',
+    teamSize: 1,
+    features: [
+      'Sign up, sign in, sign out',
+      'User authentication and authorization',
+      'Social login (Facebook, Google)',
+      'Forgot password, reset password',
+      'Update user profile',
+      'Manage products, categories, brands, users, customers, orders, shipping, sale reports, settings (admin)',
+      'View products by category, detail product',
+      'Search products by category, name, natural language',
+      'Add products to cart, update cart, delete cart',
+      'Placing orders, tracking orders, viewing order history',
+      'Making payments via PayPal and COD',
+      'Chat between admin and customers',
+    ]
   },
 ];

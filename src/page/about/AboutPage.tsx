@@ -136,7 +136,7 @@ export default function AboutMe() {
                 key={hobby.name}
                 variants={fadeIn}
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl hover:shadow-md transition-all duration-300"
+                className="flex items-center gap-3 bg-white dark:bg-gray-800/50 p-4 rounded-xl hover:shadow-md transition-all duration-300"
               >
                 <hobby.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <span className="text-gray-700 dark:text-gray-300">{hobby.name}</span>

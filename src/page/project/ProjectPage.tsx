@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Code, ExternalLink, Github, ChevronDown } from 'lucide-react';
 import { projects } from '../../data/Projects';
 import { Link } from 'react-router-dom';
+
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -26,6 +27,13 @@ export default function ProjectsPage() {
   }, []);
 
   if (!mounted) return null;
+
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  };
 
   return (
     <div className="min-h-screen relative p-6 md:p-12 transition-colors duration-300">
@@ -123,7 +131,9 @@ export default function ProjectsPage() {
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2 dark:text-white">{project.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 mb-4 text-justify">
+                {truncateText(project.description, 200)}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span

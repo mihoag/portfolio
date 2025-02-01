@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Github, Calendar, Users, Code, Lightbulb } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, Calendar, Users, Lightbulb } from 'lucide-react';
 import { projects } from '../../data/Projects';
 
 const fadeIn = {
@@ -105,14 +105,12 @@ export default function ProjectDetailPage() {
               <span className="text-gray-700 dark:text-gray-300">Team Size: {project.teamSize} developers</span>
             </div>
             <div className="flex items-center gap-3">
-              <Code className="w-6 h-6 text-blue-600" />
-              <span className="text-gray-700 dark:text-gray-300">
-                {project.linesOfCode.toLocaleString()}+ lines of code
-              </span>
+            <Calendar className="w-6 h-6 text-blue-600" />
+            <span className="text-gray-700 dark:text-gray-300">Ended: {project.endDate}</span>
             </div>
             <div className="flex items-center gap-3">
               <Lightbulb className="w-6 h-6 text-blue-600" />
-              <span className="text-gray-700 dark:text-gray-300">{project.majorFeatures} major features</span>
+              <span className="text-gray-700 dark:text-gray-300">{project.features.length} major features</span>
             </div>
           </motion.div>
 
@@ -136,11 +134,9 @@ export default function ProjectDetailPage() {
           </motion.h2>
 
           <motion.ul variants={fadeIn} className="list-disc list-inside mb-8 text-gray-600 dark:text-gray-300">
-            <li>Real-time inventory management</li>
-            <li>Secure payment integration</li>
-            <li>User authentication and authorization</li>
-            <li>Responsive design for mobile and desktop</li>
-            <li>Performance optimized for high traffic</li>
+            {project.features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
           </motion.ul>
 
           <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">

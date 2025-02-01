@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { LightbulbIcon } from 'lucide-react';
 import { skillCategories } from '../../data/Skills';
+import { SkillTooltip } from '../../components/page/skill/SkillTooltip';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -88,14 +89,15 @@ export default function SkillsPage() {
               </div>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
-                  <motion.span
-                    key={skill}
-                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {skill}
-                  </motion.span>
+                  <SkillTooltip key={skill.name} skill={skill}>
+                    <motion.span
+                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium cursor-pointer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {skill.name}
+                    </motion.span>
+                  </SkillTooltip>
                 ))}
               </div>
             </motion.div>
