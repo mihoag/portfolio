@@ -95,7 +95,6 @@ export default function EducationPage() {
         animate="animate"
         variants={{
           animate: {
-            staggerChildren: 0.1,
             transition: {
               staggerChildren: 0.1,
             },
