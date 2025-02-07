@@ -10,6 +10,8 @@ type Project = {
   endDate: string;
   teamSize: number;
   features: string[];
+  role: string;
+  responsibilities: string[];
 };
 
 export const projects: Project[] = [
@@ -25,9 +27,32 @@ export const projects: Project[] = [
     endDate: 'January 2025',
     teamSize: 5,
     features: [
-      'Real-time interactive games',
+      'User registration and account verification',
       'User authentication and authorization',
-    ]
+      'Forgot password, reset password',
+      `Static users, campaigns, brands, vouchers, puzzles, games (admin's side)`,
+      `Campaigns, account, brands, game management (admin's side)`,     
+      `Static campaigns, vouchers, participant (brand's side)`,
+      'Campaigns, branches management (brand’s side)',
+      `Render newest campaigns, popular branch`,
+      'Add campaigns to favorite list, receive notifications when campaigns are upcoming',
+      'Search campaigns, vouchers by name',
+      `Rendering brands which their locations are near user's location, integrated with Google Map`,
+      `Participate Shake's game and receive items`,
+      `Share items to user's friends by send email`,
+      `Share campaigns on social network, invite friends to receive turns`,
+      'Participate in quizzes realtime, receive vouchers',
+    ],
+    role: 'Backend Developer',
+    responsibilities: [
+      "Design an ERD (Entity-Relationship Diagram) for the database schema of the entire system.",
+      "Build the system using a monolithic architecture following a domain-driven design (DDD) approach.",
+      "Design and build the system using a microservices architecture.",
+      "Write API, Unit Test for Game Service, Notification Service",
+      "Implement WebSocket for Quiz Realtime features.",
+      "Write API documentation using Swagger.",
+      "Collaborate with the frontend team to integrate the backend services with the frontend application.",
+    ],
   },
   {
     id: '2',
@@ -52,6 +77,15 @@ export const projects: Project[] = [
       'Rendering detail movie, actor',
       'User interaction: rate, add to favorite, watch list',
       'Detail profile, edit and update profile'
+    ],
+    role: 'Frontend Developer, Leader',
+    responsibilities: [
+      'Build entire UI for the frontend application using React, Tailwind CSS',
+      `Implement all user's features in the frontend application`,
+      'Integrate APIs with backend service',
+      `Use Redux for state management, React Query for fetching data`,
+      `Implement CI/CD pipeline for the frontend application`,
+      `Collaborate with the backend team to develop project efficiently`,
     ]
   },
   {
@@ -68,9 +102,13 @@ export const projects: Project[] = [
     features: [
       'User Authentication & Role-Based Access Control',
       'Dynamic CRUD Form Generation',
-      ' Custom Inversion of Control (IoC) Implementation',
+      'Custom Inversion of Control (IoC) Implementation',
       'Dynamically generates UI layouts and data models based on database structures.'
-
+    ],
+    role: 'Backend Developer',
+    responsibilities: [
+      'Implement core features of the framework including connection to databases, CRUD operations',
+      'Apply design patterns such as Singleton, Strategy, Abstract Factory to ensure scalability and maintainability',
     ]
   },
   {
@@ -88,12 +126,23 @@ export const projects: Project[] = [
      'Search novels by title, author, publication year',
      'Read novels with customizable display settings (font size, colors, spacing)',
      'Fetches novel content from multiple external sources with user-defined priority',
-      'Automatically switches to an alternative source if a chapter is missing or of low quality',
-      'Saves user progress and enables quick navigation to chapters or specific pages',
-      'Supports exporting novels into various formats (PDF, EPUB, MP3) for offline reading',
-      'Downloads and stores content locally for faster access and better convenience',
-      'Supports hot-plugging new novel sources without recompilation',
-      'Administrators can add/remove supported ebook formats dynamically'
+     'Automatically switches to an alternative source if a chapter is missing or of low quality',
+     'Saves user progress and enables quick navigation to chapters or specific pages',
+     'Supports exporting novels into various formats (PDF, EPUB, MP3) for offline reading',
+     'Downloads and stores content locally for faster access and better convenience',
+     'Supports hot-plugging new novel sources without recompilation',
+     'Administrators can add/remove supported ebook formats dynamically'
+    ],
+    role: 'Backend Developer',
+    responsibilities: [
+      `Build a plugin to crawl novel data from the source https://truyen.tangthuvien.vn/.`,
+      `Design model and handle exceptions for entire backend application.`,
+      'Build a plugin to export novel data to PDF, apply multithreading to improve performance when downloading novel data.',
+      'Write unit tests for crawling and exporting plugins.',
+      `Implement features plugins management, user authentication`,
+      `Deploy the backend application on render.com`,
+      'Write API documentation using Swagger.',
+      'Collaborate with the frontend team to integrate the backend services with the frontend application.',
     ]
   },
   {
@@ -120,6 +169,31 @@ export const projects: Project[] = [
       'Placing orders, tracking orders, viewing order history',
       'Making payments via PayPal and COD',
       'Chat between admin and customers',
-    ]
+    ],
+    role: 'Fullstack Developer',
+    responsibilities: []
+  },
+  {
+    id: '6',
+    title: 'Booking System',
+    description: 'The Movie Ticket Booking System is a graphical user interface (GUI) application designed to facilitate the booking of tickets for events occurring on specified future dates. This system consists of two main components: a server application and a client application, allowing for efficient management and purchase of tickets.',
+    image: 'https://res.cloudinary.com/dt0ps34k9/image/upload/v1738934263/Screenshot_2025-02-07_201107_xel87q.png',
+    technologies: ['Java', 'JavaSwing', 'Socket', 'Multithreading', 'JCalendar', 'Synchronization'],
+    liveLink: 'https://www.youtube.com/watch?v=Hv6hROnKYb8',
+    githubLink: 'https://github.com/mihoag/BookingSystem',
+    startDate: 'May 2024',
+    endDate: 'June 2024',
+    teamSize: 1,
+    features: [
+      'Configure events to take place on a specific date in the future.',
+      'Configure the layout of the venue, including the number of zones or stages, rows, and seats per row.',
+      'Allows administrators to configure events, seating arrangements, and ticket prices.',
+      'Real-Time monitoring, provides a view of seat availability (occupied or vacant).',
+      'Connects to the server to retrieve and display available events and their showtime.',
+      'Enables users to book tickets for available seats, storing essential customer information (name, phone number, seat selection).',
+      'Operate without a database by utilizing internal data storage for managing event and booking information.'
+    ],
+    role: 'Fullstack Developer',
+    responsibilities: []
   },
 ];

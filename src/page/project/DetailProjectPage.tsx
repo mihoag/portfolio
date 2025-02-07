@@ -139,6 +139,34 @@ export default function ProjectDetailPage() {
             ))}
           </motion.ul>
 
+          {
+            project.role && (
+              <>
+                <motion.h2 variants={fadeIn} className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+                  My Role
+                </motion.h2>
+                <motion.p variants={fadeIn} className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-8 leading-relaxed text-justify">
+                  {project.role}
+                </motion.p>
+              </>
+            )
+          }
+
+          {
+            project.responsibilities.length > 0 && (
+              <>
+                <motion.h2 variants={fadeIn} className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+                  My Responsibilities
+                </motion.h2>
+                <motion.ul variants={fadeIn} className="list-disc list-inside mb-8 text-gray-600 dark:text-gray-300">
+                  {project.responsibilities.map((resp) => (
+                    <li key={resp}>{resp}</li>
+                  ))}
+                </motion.ul>
+              </>
+            )
+          }
+
           <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
             <a
               href={project.liveLink}
