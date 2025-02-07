@@ -34,7 +34,6 @@ export default function EducationPage() {
           animate: {
             transition: {
               transition: {
-                staggerChildren: 0.1,
               },
             },
           },
